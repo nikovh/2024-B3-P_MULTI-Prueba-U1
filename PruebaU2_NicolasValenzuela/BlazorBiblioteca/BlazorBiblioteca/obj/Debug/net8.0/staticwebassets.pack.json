@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Nico\\Desktop\\PruebaU2_NicolasValenzuela\\BlazorBiblioteca\\BlazorBiblioteca\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BlazorBiblioteca.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.BlazorBiblioteca.props",
+      "PackagePath": "build\\BlazorBiblioteca.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.BlazorBiblioteca.props",
+      "PackagePath": "buildMultiTargeting\\BlazorBiblioteca.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.BlazorBiblioteca.props",
+      "PackagePath": "buildTransitive\\BlazorBiblioteca.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

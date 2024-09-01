@@ -1,0 +1,177 @@
+﻿@page "/"
+@inject HttpClient Http
+@using BlazorBiblioteca.Shared
+<PageTitle>Biblioteca</PageTitle>
+
+<h1>BIBLIOTECA</h1>
+<br />
+
+
+@* Llama el mensaje de la conexión   *@
+Estado de la conexión:
+<p style="color: #2ad02a;">@conexionServidor</p>
+<p style="color: #2ad02a;">@conexionLibros</p>
+
+
+<h2>Formulario</h2>
+<EditForm Model="@libro" OnValidSubmit="CreateOrUpdateLibro" FormName="createOrUpdate">
+    <table>
+        <tr>
+            <td><label for="nombre">Nombre del libro:</label></td>
+            <td><InputText id="nombre" @bind-Value=libro!.NombreLibro></InputText></td>
+        </tr>
+        <tr>
+            <td><label for="autor">Nombre del Autor:</label></td>
+            <td><InputText id="autor" @bind-Value=libro!.Autor></InputText></td>
+        </tr>
+        <tr>
+            <td><label for="paginas">Número de Páginas:</label></td>
+            <td><InputNumber id="paginas" @bind-Value=libro!.NumPaginas></InputNumber></td>
+        </tr>
+        <tr>
+            <td><label for="fecha">Fecha de Publicación:</label></td>
+            <td><InputDate id="fecha" @bind-Value=libro!.FechaPublicacion></InputDate></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: left;">
+                <button type="submit">Guardar Libro</button>
+            </td>
+        </tr>
+    </table>
+</EditForm>
+
+
+@if (!string.IsNullOrEmpty(message))
+{
+    <p style="color: #0057e3;"><strong>@message</strong></p>
+}
+
+<div class="column">
+    @if(libros.Count == 0){ <h3>No existen registros @message</h3>}
+    else
+    {
+        <h2>Listado de Libros</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Autor</th>
+                    <th>Número de páginas</th>
+                    <th>Fecha de publicación</th>
+                    <th>Actualizar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var libro in libros)
+                {
+                    <tr @key="libro.Id">
+                        <td>@libro.Id</td>
+                        <td>@libro.NombreLibro</td>
+                        <td>@libro.Autor</td>
+                        <td>@libro.NumPaginas</td>
+                        <td>@libro.FechaPublicacion</td>
+                        <td><button @onclick="() => this.libro = libro">Actualizar</button></td>
+                        <td><button @onclick="() => DeleteLibro(libro.Id)">Eliminar</button></td>  
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+@code {
+    // Variables
+    string url = "https://localhost:44300";
+    string conexionServidor = "Conectando...";
+    string conexionLibros = "Conectando...";
+    string message = string.Empty;
+    List<Libro> libros = new List<Libro>();
+
+    [SupplyParameterFromForm(FormName = "createOrUpdate")]
+    Libro libro { get; set; } = new();
+
+    // Método operación asincrona que envía una solicitud GetStringAsync mediante la url al controlador
+    async Task ProbarConexion()
+    {
+        var respuesta = await Http.GetStringAsync(url + "/api/Libro/ConexionServidor");
+        conexionServidor = respuesta;
+
+        // Peticion a conexionLibros
+        var respuestaLibros = await Http.GetStringAsync(url + "/api/Libro/ConexionLibros");
+        conexionLibros = respuestaLibros;
+    }
+
+    // Inicializar componente
+    protected override async Task OnInitializedAsync()
+    {
+        await ProbarConexion();
+        await GetLibros();
+    }
+
+    // Método AGREGAR nuevo libro
+    async Task CreateLibro()
+    {
+        var res = await Http.PostAsJsonAsync(url + "/api/Libro/LibroAgregar", libro);
+        if (res.IsSuccessStatusCode)
+        {
+            message = "Se ha ingresado un nuevo libro en la Biblioteca";
+            libro = new();
+        }
+        else
+        {
+            message = "Error al ingresar nuevo Libro";
+        }
+        await GetLibros();
+    }
+
+    //Método ACTUALIZAR Libro
+    async Task UpdateLibro()
+    {
+        var res = await Http.PutAsJsonAsync<Libro>(url + "/api/Libro/libro/" + libro.Id, libro);
+
+        if (res.IsSuccessStatusCode) message = $"Se ha actualizado el libro {libro.NombreLibro}"; 
+        else message = $"Error al actualizar el libro {libro.NombreLibro}";
+        
+        libro = new();
+        await GetLibros();
+    }
+
+    // Método que busca crear o actualizar libro
+    async Task CreateOrUpdateLibro()
+    {
+        if (libro.Id == 0)
+            await CreateLibro();
+        else
+            await UpdateLibro();
+    }
+
+    // Método LISTAR libros
+    async Task GetLibros()
+    {
+        try
+        {
+            var books = await Http.GetFromJsonAsync<List<Libro>>(url + "/api/Libro/LibrosListar");
+            libros = books;
+        }
+        catch (Exception ex)
+        {
+            message = ex.Message;
+        }
+    }
+
+    // Método ELIMINAR libros
+    async Task DeleteLibro(int id)
+    {
+        var res = await Http.DeleteAsync(url + $"/api/Libro/libro/{id}");
+        if (res.IsSuccessStatusCode)
+        {
+            message = "Libro eliminado correctamente";
+            await GetLibros();
+        }
+        else {
+            message = "Error al eliminar libro";
+        }
+    }
+}

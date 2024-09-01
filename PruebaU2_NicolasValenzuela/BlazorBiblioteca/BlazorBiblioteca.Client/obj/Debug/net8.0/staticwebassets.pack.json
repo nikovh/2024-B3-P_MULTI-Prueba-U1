@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Nico\\Desktop\\PruebaU2_NicolasValenzuela\\BlazorBiblioteca\\BlazorBiblioteca.Client\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "C:\\Users\\Nico\\Desktop\\PruebaU2_NicolasValenzuela\\BlazorBiblioteca\\BlazorBiblioteca.Client\\obj\\Debug\\net8.0\\compressed\\eids0tlpz4.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "C:\\Users\\Nico\\Desktop\\PruebaU2_NicolasValenzuela\\BlazorBiblioteca\\BlazorBiblioteca.Client\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorBiblioteca.Client.bundle.scp.css",
+      "PackagePath": "staticwebassets\\BlazorBiblioteca.Client.bundle.scp.css"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BlazorBiblioteca.Client.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.BlazorBiblioteca.Client.props",
+      "PackagePath": "build\\BlazorBiblioteca.Client.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.BlazorBiblioteca.Client.props",
+      "PackagePath": "buildMultiTargeting\\BlazorBiblioteca.Client.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.BlazorBiblioteca.Client.props",
+      "PackagePath": "buildTransitive\\BlazorBiblioteca.Client.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

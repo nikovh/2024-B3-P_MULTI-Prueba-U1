@@ -1,0 +1,12 @@
+C:\Users\Nico\Desktop\PruebaU2_NicolasValenzuela\BlazorBiblioteca.shared\bin\Debug\net8.0\BlazorBiblioteca.Shared.deps.json
+C:\Users\Nico\Desktop\PruebaU2_NicolasValenzuela\BlazorBiblioteca.shared\bin\Debug\net8.0\BlazorBiblioteca.Shared.dll
+C:\Users\Nico\Desktop\PruebaU2_NicolasValenzuela\BlazorBiblioteca.shared\bin\Debug\net8.0\BlazorBiblioteca.Shared.pdb
+C:\Users\Nico\Desktop\PruebaU2_NicolasValenzuela\BlazorBiblioteca.shared\obj\Debug\net8.0\BlazorBiblioteca.Shared.csproj.AssemblyReference.cache
+C:\Users\Nico\Desktop\PruebaU2_NicolasValenzuela\BlazorBiblioteca.shared\obj\Debug\net8.0\BlazorBiblioteca.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nico\Desktop\PruebaU2_NicolasValenzuela\BlazorBiblioteca.shared\obj\Debug\net8.0\BlazorBiblioteca.Shared.AssemblyInfoInputs.cache
+C:\Users\Nico\Desktop\PruebaU2_NicolasValenzuela\BlazorBiblioteca.shared\obj\Debug\net8.0\BlazorBiblioteca.Shared.AssemblyInfo.cs
+C:\Users\Nico\Desktop\PruebaU2_NicolasValenzuela\BlazorBiblioteca.shared\obj\Debug\net8.0\BlazorBiblioteca.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Nico\Desktop\PruebaU2_NicolasValenzuela\BlazorBiblioteca.shared\obj\Debug\net8.0\BlazorBiblioteca.Shared.dll
+C:\Users\Nico\Desktop\PruebaU2_NicolasValenzuela\BlazorBiblioteca.shared\obj\Debug\net8.0\refint\BlazorBiblioteca.Shared.dll
+C:\Users\Nico\Desktop\PruebaU2_NicolasValenzuela\BlazorBiblioteca.shared\obj\Debug\net8.0\BlazorBiblioteca.Shared.pdb
+C:\Users\Nico\Desktop\PruebaU2_NicolasValenzuela\BlazorBiblioteca.shared\obj\Debug\net8.0\ref\BlazorBiblioteca.Shared.dll
